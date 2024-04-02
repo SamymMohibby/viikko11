@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGroceries"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonAddNewGrocery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAddNewGrocery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="436dp"
+        android:onClick="switchToAddGroceryActivity"
+        android:text="ADD GROCERY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageAlphabet"
+        android:layout_width="37dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:onClick="onSortAlphabetClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddNewGrocery"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sort_by_alpha_fill0_wght400_grad0_opsz24" />
+
+    <ImageView
+        android:id="@+id/imageTime"
+        android:layout_width="37dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="72dp"
+        android:onClick="onSortTimeClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toEndOf="@+id/imageAlphabet"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/schedule_fill0_wght400_grad0_opsz24" />
+</androidx.constraintlayout.widget.ConstraintLayout>
