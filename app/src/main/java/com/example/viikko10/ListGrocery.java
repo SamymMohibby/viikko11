@@ -20,6 +20,14 @@ public class ListGrocery extends AppCompatActivity {
         }
         return instance;
     }
+    public Grocery getGroceryByName(String name) {
+        for (Grocery grocery : groceryList) {
+            if (grocery.getName().equals(name)) {
+                return grocery;
+            }
+        }
+        return null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
