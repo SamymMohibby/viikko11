@@ -18,8 +18,12 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
         this.groceries = groceries;
     }
     public void onItemEdit(int position) {
-        // Get the item at the given position
-        Grocery grocery = groceries.get(position);
+        if (position >= 0 && position < groceries.size()) {
+            Grocery grocery = groceries.get(position);
+            // Handle the editing logic here
+            // This could be showing a dialog to the user to edit the grocery item's details
+            notifyItemChanged(position);
+        }
     }
 
     @NonNull
@@ -30,9 +34,10 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
         return new GroceryViewHolder(itemView, this);
     }
     public void onItemDelete(int position) {
-        // Remove the item from your data set
-        groceries.remove(position);
-        notifyItemRemoved(position);
+        if (position >= 0 && position < groceries.size()) {
+            groceries.remove(position);
+            notifyItemRemoved(position);
+        }
     }
 
     @Override

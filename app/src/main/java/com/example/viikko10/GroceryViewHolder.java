@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class GroceryViewHolder extends RecyclerView.ViewHolder {
     TextView groceryName, groceryNote;
     private final GroceryListAdapter adapter;
-    public GroceryViewHolder(View itemView, GroceryListAdapter adapter) {
+    public GroceryViewHolder(View itemView, final GroceryListAdapter adapter) {
         super(itemView);
         groceryName = itemView.findViewById(R.id.textGroceryName);
         groceryNote = itemView.findViewById(R.id.textGroceryNote);
@@ -19,27 +19,24 @@ public class GroceryViewHolder extends RecyclerView.ViewHolder {
         ImageView editButton = itemView.findViewById(R.id.imageEdit);
         this.adapter = adapter;
         ImageView editBtn = itemView.findViewById(R.id.imageEdit);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                adapter.onItemEdit(getAdapterPosition());
-            }
-        });
-
+        deleteButton = itemView.findViewById(R.id.imageDelete);
+        editButton = itemView.findViewById(R.id.imageEdit);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Call a method from the adapter to handle deletion
-                if (adapter != null) {
-                    adapter.onItemDelete(getAdapterPosition());
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    adapter.onItemDelete(position);
                 }
             }
         });
+
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Call a method from the adapter to handle edit
-                if (adapter != null) {
-                    adapter.onItemEdit(getAdapterPosition());
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    adapter.onItemEdit(position);
                 }
             }
         });

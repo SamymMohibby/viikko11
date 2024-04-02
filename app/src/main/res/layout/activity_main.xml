@@ -9,18 +9,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvGroceries"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/buttonAddNewGrocery"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddNewGrocery" />
 
     <Button
         android:id="@+id/buttonAddNewGrocery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="436dp"
+        android:layout_marginTop="80dp"
         android:onClick="switchToAddGroceryActivity"
         android:text="ADD GROCERY"
         app:layout_constraintEnd_toEndOf="parent"

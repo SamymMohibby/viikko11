@@ -7,9 +7,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ListGrocery extends AppCompatActivity {
+    private static ListGrocery instance;
     private RecyclerView recyclerView;
     private GroceryListAdapter adapter;
-    private ArrayList<Grocery> groceryList; // You need a list to hold your groceries
+    private ArrayList<Grocery> groceryList;
+    public ArrayList<Grocery> getGroceries() {
+        return this.groceryList; // Return your current list of groceries
+    }
+    public static synchronized ListGrocery getInstance() {
+        if(instance == null) {
+            instance = new ListGrocery();
+        }
+        return instance;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
